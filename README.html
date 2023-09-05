@@ -377,9 +377,9 @@ during cross validation.</li>
 indicators approach for generating the non-linear term.</li>
 </ol>
 <ul>
-<li>Retain both initial descriptive statistics of the training data
-(mean <span class="math inline">\(m_{is}\)</span> and standard deviation
-<span class="math inline">\(s_{is}\)</span>), and</li>
+<li>Retain both initial descriptive statistics of the training data mean
+(<span class="math inline">\(m_{is}\)</span>) and standard deviation
+(<span class="math inline">\(s_{is}\)</span>), and</li>
 <li>Estimated measurement weights (<span class="math inline">\(w_{is}\)</span>) and loadings (<span class="math inline">\(l_{is}\)</span>), and structural path coefficients
 (<span class="math inline">\(B_{is}\)</span>).</li>
 </ul>
@@ -394,7 +394,7 @@ possible pairwise products of the indicators of the exogenous variables
 (<span class="math inline">\(x_i\)</span>) and of the moderator variable
 (<span class="math inline">\(m_j\)</span>) using holdout data (<span class="math inline">\(x_{oos}\)</span>).</li>
 <li>Append the holdout data from step 1 with the new manufactured
-indicators from step 3.b.</li>
+indicators from step 3.</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li>Standardize holdout data from step 3 using training standard
@@ -404,27 +404,29 @@ deviation <span class="math inline">\(s_{is}\)</span> and mean <span class="math
 <ul>
 <li>Predict the construct scores of exogenous constructs using holdout
 data from step 5 and the training measurement weights (<span class="math inline">\(w_{is}\)</span>): <span class="math display">\[X =
-x.w_{is}\]</span></li>
+x.w_{is}\]</span>.</li>
 </ul>
 <ol start="6" style="list-style-type: decimal">
 <li>Predict the endogenous construct scores:</li>
 </ol>
 <ul>
 <li>Multiply the predicted construct scores (<span class="math inline">\(X\)</span>) by structural paths (<span class="math inline">\(B_{is}\)</span>): <span class="math display">\[Y =
-XB\]</span></li>
+X.B\]</span>.</li>
 </ul>
 <ol start="7" style="list-style-type: decimal">
 <li>Predict the indicator scores of endogenous constructs:</li>
 </ol>
 <ul>
-<li>Multiply the predicted construct scores (<span class="math inline">\(Y\)</span>) with the measurement loadings (<span class="math inline">\(l_{is}\)</span>): <span class="math display">\[y=Yl_{is}\]</span></li>
+<li>Multiply the predicted construct scores (<span class="math inline">\(Y\)</span>) with the measurement loadings (<span class="math inline">\(l_{is}\)</span>): <span class="math display">\[y=Y.l_{is}\]</span>.</li>
 </ul>
 <ol start="8" style="list-style-type: decimal">
-<li>Unstandardize predictions. Use the training data standard deviation
-sis and mean mis to bring the predictions back to the original scale.
-Multiply each predicted observation by its corresponding standard
-deviation and add its corresponding mean.</li>
+<li>Unstandardize predictions.</li>
 </ol>
+<ul>
+<li>Use the training data standard deviation <span class="math inline">\(s_{is}\)</span> and mean <span class="math inline">\(m_{is}\)</span> to bring the predictions back to
+the original scale. Multiply each predicted observation by its
+corresponding standard deviation and add its corresponding mean.</li>
+</ul>
 </div>
 <div id="procedure-for-generating-point-predictions-from-pls-sem-models-including-a-non-linear-term-generated-using-the-orthogonal-approach." class="section level2">
 <h2>Procedure for generating point predictions from PLS-SEM models
@@ -444,51 +446,71 @@ during cross validation.</li>
 indicators approach for generating the non-linear term.</li>
 </ol>
 <ul>
-<li>Retain both initial descriptive statistics of the training data
-(mean mis and standard deviation sis), and</li>
-<li>Estimated measurement weights (<span class="math inline">\(w_{is}\)</span>) and loadings (lis), and
-structural path coefficients (Bis).</li>
+<li>Retain both initial descriptive statistics of the training data mean
+(<span class="math inline">\(m_{is}\)</span>) and standard deviation
+(<span class="math inline">\(s_{is}\)</span>), and</li>
+<li>Estimated measurement weights (<span class="math inline">\(w_{is}\)</span>) and loadings (<span class="math inline">\(l_{is}\)</span>), and structural path coefficients
+(<span class="math inline">\(B_{is}\)</span>).</li>
 <li>In addition to the measurement and structural model estimates, the
 parameter estimates for the linear models used in the residual centering
 (<span class="math inline">\(b_{is}\)</span>) need to be retained.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>Generate the holdout product indicator data for the non-linear term.
-Standardize holdout data using training standard deviation sis and mean
-mis. Generate the preliminary holdout product indicators data by all
+<li>Generate the holdout product indicator data for the non-linear
+term.</li>
+</ol>
+<ul>
+<li>Standardize holdout data using training standard deviation (<span class="math inline">\(s_{is}\)</span>) and mean (<span class="math inline">\(m_{is}\)</span>).</li>
+<li>Generate the preliminary holdout product indicators data by all
 possible pairwise products of the indicators of the exogenous variables
-(xi) and of the moderator variable (mj) using holdout data (<span class="math inline">\(x_{oos}\)</span>). Residual center the holdout
-data for indicators of the non-linear term For each of the preliminary
-indicators of the non-linear term (from 3.b) use the parameter estimates
-of the relevant residual centering linear model (bis) and the holdout
-data (<span class="math inline">\(x_{oos}\)</span>) to generate a
-predicted score for the preliminary indicator. Deduct the predicted
-holdout preliminary indicator scores calculated in step 4.a. from the
-preliminary holdout product indicator scores from step 3.b. Append the
-holdout data from step 1 with the new residual centered indicators from
-step 4.b. Standardize holdout data from step 4 using training standard
-deviation <span class="math inline">\(s_{is}\)</span> and mean <span class="math inline">\(m_{is}\)</span>. Predict exogenous construct
-scores from outer weights: Predict the construct scores of exogenous
-constructs using holdout data from step 5 and the training measurement
-weights (<span class="math inline">\(w_{is}\)</span>): <span class="math display">\[ X= xw_{is}\]</span>.</li>
+(<span class="math inline">\(x_i\)</span>) and of the moderator variable
+(<span class="math inline">\(m_j\)</span>) using holdout data (<span class="math inline">\(x_{oos}\)</span>).</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Residual center the holdout data for indicators of the non-linear
+term</li>
+</ol>
+<ul>
+<li>For each of the preliminary indicators of the non-linear term (from
+3) use the parameter estimates of the relevant residual centering linear
+model (<span class="math inline">\(b_{is}\)</span>) and the holdout data
+(<span class="math inline">\(x_{oos}\)</span>) to generate a predicted
+score for the preliminary indicator.</li>
+<li>Deduct the predicted holdout preliminary indicator scores calculated
+in step 4. from the preliminary holdout product indicator scores from
+step 3.</li>
+<li>Append the holdout data from step 1 with the new residual centered
+indicators from step 4.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Standardize holdout data from step 4 using training standard
+deviation <span class="math inline">\(s_{is}\)</span> and mean <span class="math inline">\(m_{is}\)</span>.</li>
+<li>Predict exogenous construct scores from outer weights:</li>
+</ol>
+<ul>
+<li>Predict the construct scores of exogenous constructs using holdout
+data from step 5 and the training measurement weights (<span class="math inline">\(w_{is}\)</span>): <span class="math display">\[ X
+= x.w_{is}\]</span>.</li>
+</ul>
+<ol start="7" style="list-style-type: decimal">
 <li>Predict the endogenous construct scores:</li>
 </ol>
 <ul>
-<li>Multiply the predicted construct scores (<span class="math inline">\(X\)</span>) by structural paths (<span class="math inline">\(B_{is}\)</span>): <span class="math display">\[Y=
-XB\]</span>.</li>
+<li>Multiply the predicted construct scores (<span class="math inline">\(X\)</span>) by structural paths (<span class="math inline">\(B_{is}\)</span>): <span class="math display">\[Y =
+X.B\]</span>.</li>
 </ul>
 <ol start="8" style="list-style-type: decimal">
 <li>Predict the indicator scores of endogenous constructs:</li>
 </ol>
 <ul>
-<li>Multiply the predicted construct scores (<span class="math inline">\(Y\)</span>) with the measurement loadings (<span class="math inline">\(l_{is}\)</span>): <span class="math display">\[y=Ylis\]</span>.</li>
+<li>Multiply the predicted construct scores (<span class="math inline">\(Y\)</span>) with the measurement loadings (<span class="math inline">\(l_{is}\)</span>): <span class="math display">\[y=Y.l_{is}\]</span>.</li>
 </ul>
 <ol start="9" style="list-style-type: decimal">
 <li>Unstandardize predictions.</li>
 </ol>
 <ul>
 <li>Use the training data standard deviation <span class="math inline">\(s_{is}\)</span> and mean <span class="math inline">\(m_{is}\)</span> to bring the predictions back to
-the original scale. - Multiply each predicted observation by its
+the original scale. Multiply each predicted observation by its
 corresponding standard deviation and add its corresponding mean.</li>
 </ul>
 </div>
